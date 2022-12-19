@@ -33,7 +33,7 @@ const firebaseConfig = {
 
   export const db = getFirestore(); //direct point to our database
 
-  export const createUserDocumentFromAuth = async (userAuth) => {
+  export const createUserDocumentFromAuth = async (userAuth,additionalInformation={}) => {
     const userDocRef = doc(db,'users', userAuth.uid);   //doc took 3 indexes, database, collection, uid
     console.log(userDocRef);
 
@@ -49,7 +49,7 @@ const firebaseConfig = {
         
         try{
             await setDoc(userDocRef,{ //Create 1 userDocRef with name, email and date.
-                displayName,email,createdDate
+                displayName,email,createdDate,...additionalInformation,
             })
         }catch(error){
             console.log(error.message);
