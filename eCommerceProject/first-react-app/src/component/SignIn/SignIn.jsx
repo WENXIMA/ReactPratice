@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { signInWithGooglePopup, createUserDocumentFromAuth,signAuthUserWithEmailAndPassword} from "../../utils/firebase/firebase.utils";
 
 
-
 const defaultLogIn = {
     email: '',
     password: ''
@@ -16,9 +15,13 @@ const SignIn = () => {
     };
     const [LogInInput, setLogInInput] = useState(defaultLogIn);
     const { email, password } = LogInInput;
+
+
+
     const clearForm = () => {
         setLogInInput(defaultLogIn);
     }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (email === '' && password === '') {
@@ -31,6 +34,7 @@ const SignIn = () => {
             console.log(error.message);
         }
     };
+
     const changeHandler = (event) => {
         const { name, value } = event.target;
         setLogInInput({

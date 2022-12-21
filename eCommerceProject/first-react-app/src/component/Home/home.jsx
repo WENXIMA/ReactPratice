@@ -1,4 +1,4 @@
-import CategoryList from '../category-list/categoryList.jsx';
+import CategoryList from './categoryList.jsx';
 
 const home = () => {
   
